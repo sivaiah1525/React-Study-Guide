@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Week React Learning Journey - Weekly Study Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .intro {
+            background: #f8f9ff;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin: 30px 0 20px 0;
+            text-align: center;
+            font-size: 1.3em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .week-section {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+        
+        .week-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        
+        .week-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .week-title {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+        
+        .week-goal {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+        
+        .study-days {
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .study-days ul {
+            margin-left: 20px;
+        }
+        
+        .study-days li {
+            margin-bottom: 8px;
+        }
+        
+        .meeting-agenda {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .practice-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .discussion-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .tips-box {
+            background: #fce4ec;
+            border-left: 4px solid #e91e63;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .homework-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .resources {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .resources ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .resources li:before {
+            content: "🔗 ";
+            margin-right: 8px;
+        }
+        
+        .download-btn {
+            display: block;
+            width: 250px;
+            margin: 30px auto;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1em;
+            transition: transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+            
+            .week-section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 12-Week React Mastery Journey</h1>
+        <p class="subtitle">Practice-Focused Weekly Meetup Guide for Two Friends</p>
+        
+        <div class="intro">
+            <h3>📋 How This Guide Works</h3>
+            <p><strong>Study Pattern:</strong> Study independently Mon-Fri (1-2 hours/day), meet once weekly (Sat/Sun)</p>
+            <ul>
+                <li><strong>Self-Study:</strong> Each week has 3-4 focused topics (not overwhelming!)</li>
+                <li><strong>Weekly Meeting:</strong> 2-3 hours of practice, discussion, and pair programming</li>
+                <li><strong>Learning Style:</strong> 60% practice, 40% theory</li>
+                <li><strong>Mini Projects:</strong> Small, achievable tasks every week</li>
+            </ul>
+        </div>
+
+        <div class="tips-box">
+            <h3>💡 Meeting Best Practices</h3>
+            <ul>
+                <li><strong>Arrive Prepared:</strong> Complete the week's topics and mini-task before meeting</li>
+                <li><strong>Teach Each Other:</strong> Take turns explaining concepts (best way to learn!)</li>
+                <li><strong>Code Together:</strong> Pair programming - switch roles every 20-30 min</li>
+                <li><strong>Ask Questions:</strong> No question is stupid - if confused, say it!</li>
+                <li><strong>Have Fun:</strong> Celebrate small wins, learn from mistakes together</li>
+            </ul>
+        </div>
+
+        <div class="phase-header">
+            📚 PHASE 1: Web Fundamentals (Weeks 1-3)
+        </div>
+
+        <!-- WEEK 1 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 1: HTML & CSS Basics</div>
+                <div class="week-goal">Build simple web pages with structure and style</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (3 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> HTML structure, semantic tags (header, main, section, article), forms</li>
+                    <li><strong>Topic 2:</strong> CSS basics - selectors, box model, colors, fonts</li>
+                    <li><strong>Topic 3:</strong> Flexbox layout (display: flex, justify-content, align-items)</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Create a simple "About Me" page with profile section using flexbox</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>Show & Tell (20 min):</strong> Each person shows their "About Me" page</li>
+                    <li><strong>Q&A Session (25 min):</strong> Discuss any confusing concepts, share struggles</li>
+                    <li><strong>Practice Exercise 1 (40 min):</strong> Build a "Product Card" component together
+                        <ul>
+                            <li>Image, title, description, price, "Buy Now" button</li>
+                            <li>Use flexbox for layout</li>
+                            <li>Style with colors, borders, shadows</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice Exercise 2 (40 min):</strong> Create a simple navigation bar
+                        <ul>
+                            <li>Logo + menu items horizontally aligned</li>
+                            <li>Hover effects on links</li>
+                        </ul>
+                    </li>
+                    <li><strong>Wrap Up (15 min):</strong> Plan next week, set goals</li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions to Discuss</h3>
+                <ul>
+                    <li>What's the difference between <code>&lt;div&gt;</code> and <code>&lt;section&gt;</code>?</li>
+                    <li>When do you use flexbox?</li>
+                    <li>How does the box model work? Draw it!</li>
+                </ul>
+            </div>
+            
+            <div class="homework-box">
+                <h3>📝 Weekend Challenge (Optional)</h3>
+                <p>Create a "Contact Form" with name, email, message fields and a submit button. Style it nicely!</p>
+            </div>
+        </div>
+
+        <!-- WEEK 2 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 2: Responsive Design & CSS Grid</div>
+                <div class="week-goal">Make websites look good on all screen sizes</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (3 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> CSS Grid layout (grid-template-columns, gap, grid areas)</li>
+                    <li><strong>Topic 2:</strong> Media queries for responsive design (@media)</li>
+                    <li><strong>Topic 3:</strong> Mobile-first approach, responsive units (rem, em, %, vw/vh)</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Make your "About Me" page responsive (works on mobile, tablet, desktop)</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>Demo Time (20 min):</strong> Resize browser to show responsive design working</li>
+                    <li><strong>Concept Review (30 min):</strong>
+                        <ul>
+                            <li>Draw grid layouts on paper/whiteboard</li>
+                            <li>Explain media query breakpoints</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Image Gallery (50 min):</strong>
+                        <ul>
+                            <li>Create 12-image gallery using CSS Grid</li>
+                            <li>Desktop: 4 columns, Tablet: 3 columns, Mobile: 2 columns</li>
+                            <li>Add hover effects on images</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Responsive Card Layout (40 min):</strong>
+                        <ul>
+                            <li>Create 6 product cards</li>
+                            <li>Desktop: 3 per row, Tablet: 2 per row, Mobile: 1 per row</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions</h3>
+                <ul>
+                    <li>Grid vs Flexbox - when to use which?</li>
+                    <li>What are common breakpoints? (320px, 768px, 1024px)</li>
+                    <li>Why use mobile-first approach?</li>
+                </ul>
+            </div>
+            
+            <div class="homework-box">
+                <h3>📝 Weekend Challenge</h3>
+                <p>Build a responsive "Landing Page" with header, hero section, features grid (3 cards), and footer</p>
+            </div>
+        </div>
+
+        <!-- WEEK 3 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 3: JavaScript Fundamentals</div>
+                <div class="week-goal">Learn programming basics with JavaScript</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (4 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> Variables (let, const), data types (string, number, boolean, array, object)</li>
+                    <li><strong>Topic 2:</strong> Functions (regular and arrow functions), parameters, return values</li>
+                    <li><strong>Topic 3:</strong> Arrays - map, filter, forEach</li>
+                    <li><strong>Topic 4:</strong> DOM manipulation (querySelector, addEventListener, textContent)</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Create a "Button Counter" - click button to increase number on screen</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>Show Counters (15 min):</strong> Demo your button counters</li>
+                    <li><strong>JavaScript Quiz (30 min):</strong>
+                        <ul>
+                            <li>Each person writes 3 code snippets, other person explains what it does</li>
+                            <li>Practice reading code together</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Color Changer (35 min):</strong>
+                        <ul>
+                            <li>Button that changes background color randomly</li>
+                            <li>Display the color code on screen</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Simple Todo List (50 min):</strong>
+                        <ul>
+                            <li>Input field + "Add" button</li>
+                            <li>Display list of todos</li>
+                            <li>Each todo has a "Delete" button</li>
+                            <li>Use arrays and DOM manipulation</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions</h3>
+                <ul>
+                    <li>What's the difference between <code>let</code> and <code>const</code>?</li>
+                    <li>Explain what <code>map()</code> does with an example</li>
+                    <li>How do you add a click listener to a button?</li>
+                </ul>
+            </div>
+            
+            <div class="homework-box">
+                <h3>📝 Weekend Challenge</h3>
+                <p>Build a "Quiz App" - show questions one by one, track score, show final result</p>
+            </div>
+        </div>
+
+        <div class="phase-header">
+            ⚛️ PHASE 2: React Fundamentals (Weeks 4-7)
+        </div>
+
+        <!-- WEEK 4 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 4: React Setup & Components</div>
+                <div class="week-goal">Create your first React app and understand components</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (3 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> Install Node.js, create React app with Vite (<code>npm create vite@latest</code>)</li>
+                    <li><strong>Topic 2:</strong> What is a component? JSX syntax, creating functional components</li>
+                    <li><strong>Topic 3:</strong> Props - passing data to components</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Create a "Greeting Card" component that accepts name as prop</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>Setup Help (20 min):</strong> Ensure both have React running, troubleshoot any issues</li>
+                    <li><strong>Component Deep Dive (30 min):</strong>
+                        <ul>
+                            <li>Explain JSX to each other</li>
+                            <li>What are props? Show examples</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Profile Card (45 min):</strong>
+                        <ul>
+                            <li>Create <code>ProfileCard</code> component</li>
+                            <li>Props: name, bio, image, role</li>
+                            <li>Display 3 different profile cards with different data</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Product List (45 min):</strong>
+                        <ul>
+                            <li>Create <code>Product</code> component</li>
+                            <li>Map over array of products and display them</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions</h3>
+                <ul>
+                    <li>What is JSX?</li>
+                    <li>How is React different from vanilla JavaScript?</li>
+                    <li>How do props work? Can props change?</li>
+                </ul>
+            </div>
+            
+            <div class="homework-box">
+                <h3>📝 Weekend Challenge</h3>
+                <p>Build a "Movie Card List" - display 5 movies with title, poster, rating using components</p>
+            </div>
+        </div>
+
+        <!-- WEEK 5 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 5: State & Events</div>
+                <div class="week-goal">Make components interactive with state</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (3 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> useState hook - what is state, how to use it</li>
+                    <li><strong>Topic 2:</strong> Event handling - onClick, onChange, onSubmit</li>
+                    <li><strong>Topic 3:</strong> Conditional rendering (if statements, ternary, &&)</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Create a "Show/Hide" button that toggles text visibility</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>Demo (15 min):</strong> Show your toggle components</li>
+                    <li><strong>State Explained (25 min):</strong>
+                        <ul>
+                            <li>Draw state flow diagram</li>
+                            <li>Explain when component re-renders</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Counter with Reset (30 min):</strong>
+                        <ul>
+                            <li>Increment, Decrement, Reset buttons</li>
+                            <li>Show current count</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Simple Todo App (60 min):</strong>
+                        <ul>
+                            <li>Add todo (input + button)</li>
+                            <li>Display list of todos</li>
+                            <li>Delete individual todos</li>
+                            <li>Use useState for todos array</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions</h3>
+                <ul>
+                    <li>What happens when you call setState?</li>
+                    <li>Props vs State - what's the difference?</li>
+                    <li>How do you handle form inputs in React?</li>
+                </ul>
+            </div>
+            
+            <div class="homework-box">
+                <h3>📝 Weekend Challenge</h3>
+                <p>Build a "Calculator" - basic operations (+, -, ×, ÷) with display screen</p>
+            </div>
+        </div>
+
+        <!-- WEEK 6 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 6: Lists & Forms</div>
+                <div class="week-goal">Render lists dynamically and handle forms properly</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (3 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> Rendering lists with map(), using keys</li>
+                    <li><strong>Topic 2:</strong> Controlled components for forms</li>
+                    <li><strong>Topic 3:</strong> Handling multiple form inputs</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Create a "Name List" where you can add names via form and display them</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>Demo & Review (20 min):</strong> Show name lists, discuss implementations</li>
+                    <li><strong>Keys Discussion (20 min):</strong>
+                        <ul>
+                            <li>Why do we need keys?</li>
+                            <li>What happens without keys?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Todo with Status (50 min):</strong>
+                        <ul>
+                            <li>Add todos with input</li>
+                            <li>Mark as complete (checkbox)</li>
+                            <li>Strike through completed todos</li>
+                            <li>Filter: All / Active / Completed</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Contact Form (40 min):</strong>
+                        <ul>
+                            <li>Name, Email, Message fields</li>
+                            <li>Show all form data on submit</li>
+                            <li>Clear form after submit</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions</h3>
+                <ul>
+                    <li>Why can't we use index as key? When is it okay?</li>
+                    <li>What is a controlled component?</li>
+                    <li>How do you handle multiple inputs in one form?</li>
+                </ul>
+            </div>
+            
+            <div class="homework-box">
+                <h3>📝 Weekend Challenge</h3>
+                <p>Build "Shopping Cart" - add items, show list, calculate total price</p>
+            </div>
+        </div>
+
+        <!-- WEEK 7 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 7: useEffect & API Basics</div>
+                <div class="week-goal">Learn side effects and fetch data from APIs</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (3 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> useEffect hook - when and why to use it</li>
+                    <li><strong>Topic 2:</strong> Dependency array in useEffect</li>
+                    <li><strong>Topic 3:</strong> Fetching data from API using fetch()</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Fetch and display random user data from https://randomuser.me/api/</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>API Demo (20 min):</strong> Show fetched user data, discuss challenges</li>
+                    <li><strong>useEffect Deep Dive (35 min):</strong>
+                        <ul>
+                            <li>Explain component lifecycle</li>
+                            <li>What happens with empty dependency array?</li>
+                            <li>What happens with dependencies?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Weather App (55 min):</strong>
+                        <ul>
+                            <li>Use OpenWeatherMap API (free)</li>
+                            <li>Input: city name</li>
+                            <li>Show: temperature, weather condition, icon</li>
+                            <li>Handle loading state</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Movie Search (30 min):</strong>
+                        <ul>
+                            <li>Use OMDB API</li>
+                            <li>Search movies by title</li>
+                            <li>Display results as cards</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions</h3>
+                <ul>
+                    <li>What is a side effect in React?</li>
+                    <li>Why do we need useEffect for API calls?</li>
+                    <li>What happens if you forget the dependency array?</li>
+                </ul>
+            </div>
+            
+            <div class="homework-box">
+                <h3>📝 Weekend Challenge</h3>
+                <p>Build "Joke Generator" - fetch random joke from API and display with a "Get New Joke" button</p>
+            </div>
+        </div>
+
+        <div class="phase-header">
+            🎨 PHASE 3: Styling & Routing (Weeks 8-9)
+        </div>
+
+        <!-- WEEK 8 -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-title">Week 8: Styling in React</div>
+                <div class="week-goal">Learn different ways to style React apps</div>
+            </div>
+            
+            <div class="study-days">
+                <h3>📚 Study During the Week (3 Topics Only)</h3>
+                <ul>
+                    <li><strong>Topic 1:</strong> CSS Modules - scoped styling</li>
+                    <li><strong>Topic 2:</strong> Install and use Tailwind CSS in React</li>
+                    <li><strong>Topic 3:</strong> Tailwind utility classes, responsive design with Tailwind</li>
+                </ul>
+                <p><strong>⚡ Mini Task:</strong> Redesign your Todo app with Tailwind CSS (make it beautiful!)</p>
+            </div>
+            
+            <div class="meeting-agenda">
+                <h3>🤝 Weekly Meeting Plan (5 hours)</h3>
+                <ol>
+                    <li><strong>Design Showcase (25 min):</strong> Compare styled Todo apps, discuss design choices</li>
+                    <li><strong>Styling Comparison (30 min):</strong>
+                        <ul>
+                            <li>When to use CSS Modules vs Tailwind?</li>
+                            <li>Explore Tailwind documentation together</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Styled Components (55 min):</strong>
+                        <ul>
+                            <li>Create styled Button component (primary, secondary, danger variants)</li>
+                            <li>Create Card component with hover effects</li>
+                            <li>Build a styled Modal component</li>
+                        </ul>
+                    </li>
+                    <li><strong>Practice: Dashboard Layout (30 min):</strong>
+                        <ul>
+                            <li>Sidebar + main content area</li>
+                            <li>Responsive design (mobile: hamburger menu)</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="discussion-box">
+                <h3>💬 Key Questions</h3>
+                <ul>
+                    <li>What problem do CSS
